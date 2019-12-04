@@ -1,6 +1,10 @@
 # Gantri_backend_project
 Use Tate Modern art data set to create an API that allows user to create users, view art data and create a comment for each art entry.
 
+# Table of Contents
+1. [Getting Started](#Getting-Started)
+1. [API Endpoints](#API-Endpoints)
+
 # Getting Started
 
 To run this project, install it locally following the instructions below.
@@ -56,3 +60,24 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 #### Other scripts
 Run scripts by navigating to this project's root directory from the terminal and entering `npm run <script name>`.
+
+
+# API Endpoints
+
+- /api/art - GET, view the entire art data set
+- /api/art/ID - GET, view art data by ID
+- /api/art/ID/comments - POST, add a comment for an art data entry
+```
+Data to send when creating a new comment
+- userID: STRING, optional
+- name: STRING, required if no user ID is sent,
+- content: STRING, required
+```
+- /api/users - POST, create user
+```
+Data to send when creating a new user
+- name: STRING, required
+- age: INTEGER, required
+- location: STRING, required
+```
+- /api/users - GET, see all users
