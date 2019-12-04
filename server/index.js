@@ -29,7 +29,8 @@ const getOneArt = (req, res) => {
     if (err) {
       res
       .status(500)
-      .send({ status: `something went wrong`, message: `art ${ID} could not be retrieved. ${err.message}` });    }
+      .send({ status: `something went wrong`, message: `art ${ID} could not be retrieved. ${err.message}` });
+    }
     res
       .status(200)
       .json(results.rows);
