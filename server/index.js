@@ -10,19 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 // CONTROLLERS
-const getTest = (req, res) => {
-  res
-    .status(200)
-    .json(`GET success`);
-};
-
-const postTest = (req, res) => {
-  const { test } = req.body;
-  res
-    .status(201)
-    .json(`POST success: ${test}`);
-};
-
 const getAllArt = (req, res) => {
   pool.query('SELECT * FROM art', (error, results) => {
     if (error) {
@@ -98,28 +85,23 @@ const getUsers = (req, res) => {
   app
   .route('/api/art')
   // GET endpoint
-  // .get(getTest);
   .get(getAllArt);
 
   app
   .route('/api/art/:ID')
   // GET endpoint
-  // .get(getTest);
   .get(getOneArt);
 
   app
   .route('/api/art/:ID/comments')
   // POST endpoint
-  // .post(postTest);
   .post(addComment);
 
   app
   .route('/api/users')
   // GET endpoint
-  // .get(getTest)
   .get(getUsers)
   // POST endpoint
-  // .post(postTest);
   .post(addUser);
 
 
