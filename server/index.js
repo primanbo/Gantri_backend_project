@@ -15,10 +15,34 @@ const getTest = (req, res) => {
     .json(`GET success`);
 };
 
+
   app
   .route('/api/art')
   // GET endpoint
-  .get(getTest);
+  // .get(getTest);
+  .get(getAllArt);
+
+  app
+  .route('/api/art/:ID')
+  // GET endpoint
+  // .get(getTest);
+  .get(getOneArt);
+
+  app
+  .route('/api/art/:ID/comments')
+  // POST endpoint
+  // .post(postTest);
+  .post(addComment);
+
+  app
+  .route('/api/users')
+  // GET endpoint
+  // .get(getTest)
+  .get(getUsers)
+  // POST endpoint
+  // .post(postTest);
+  .post(addUser);
+
 
 // Start server
 app.listen(process.env.PORT || 3001, () => {
