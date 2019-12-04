@@ -1,0 +1,39 @@
+{
+  "name": "gantri_backend_project",
+  "version": "1.0.0",
+  "description": "Gantri coding challenge",
+  "author": "Priyanka Piali Pramanik",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8.16.0"
+  },
+  "scripts": {
+    "check": "eslint --fix --ignore-path .eslintignore --ext .js,.jsx .",
+    "start-dev": "nodemon ./server/index.js",
+    "start-server": "node ./server/index.js",
+    "start-db": "psql < ./schema.sql",
+    "seed": "psql < ./seed.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/primanbo/Gantri_backend_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/primanbo/Gantri_backend_project/issues"
+  },
+  "homepage": "https://github.com/primanbo/Gantri_backend_project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^7.14.0"
+  },
+  "devDependencies": {
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "express-static-gzip": "^1.1.3",
+    "jshint": "^2.10.3",
+    "nodemon": "^2.0.1"
+  }
+}
