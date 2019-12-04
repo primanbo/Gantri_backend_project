@@ -9,26 +9,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-  app
+// Route requests
+app
   .route('/api/art')
-  // GET endpoint
   .get(getAllArt);
 
-  app
+app
   .route('/api/art/:ID')
-  // GET endpoint
   .get(getOneArt);
 
-  app
+app
   .route('/api/art/:ID/comments')
-  // POST endpoint
   .post(addComment);
 
-  app
+app
   .route('/api/users')
-  // GET endpoint
   .get(getUsers)
-  // POST endpoint
   .post(addUser);
 
 
