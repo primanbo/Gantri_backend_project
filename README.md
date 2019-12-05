@@ -65,7 +65,46 @@ Run scripts by navigating to this project's root directory from the terminal and
 # API Endpoints
 
 - /api/art - GET, view the entire art data set
+```
+Return JSON object example:
+[{
+  id: 10000,
+  title: “Poppies”,
+  artist: “Monet”,
+  year: 1873,
+  comments: []
+},
+{
+  id: 10001,
+  title: “Woman with the parasol”,
+  artist: “Monet”,
+  year: 1875,
+  comments: [
+    {
+      id: 10000,
+      name: “John”,
+      content: “This is rad”
+    },
+    {
+      id: 10001,
+      content: “This is super cool”,
+      name: “Allison Johnson”,
+      userID: 10000
+    },
+  ]
+}]
+```
 - /api/art/ID - GET, view art data by ID
+```
+Return JSON object example:
+{
+  id: 10000,
+  title: “Poppies”,
+  artist: “Monet”,
+  year: 1873,
+  comments: []
+}
+```
 - /api/art/ID/comments - POST, add a comment for an art data entry
 ```
 Data to send when creating a new comment
@@ -81,3 +120,18 @@ Data to send when creating a new user
 - location: STRING, required
 ```
 - /api/users - GET, see all users
+```
+Return JSON object example:
+[{
+  id: 101,
+  name: “Ahren”,
+  age: 24,
+  location: “San Francisco”
+},
+{
+  id: 102,
+  name: “John”,
+  age: 28,
+  location: “San Francisco”
+}]
+```
