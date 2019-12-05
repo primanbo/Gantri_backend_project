@@ -20,6 +20,10 @@ CREATE TABLE comments (
   content VARCHAR(50) NOT NULL 
 );
 
+CREATE UNIQUE INDEX unique_name_when_userid_null
+    ON comments
+       (name)
+ WHERE userid IS NULL;
 
 
 COPY art (id, title, artist, year) FROM 'the-tate-collection.csv' WITH (FORMAT csv, DELIMITER ';', HEADER);
