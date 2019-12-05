@@ -58,7 +58,7 @@ module.exports = {
           .then(art => {
             res
               .status(200)
-              .json(art);
+              .json(art[0]);
           });
       });
   },
