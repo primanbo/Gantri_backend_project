@@ -2,15 +2,44 @@ const { pool } = require('./config');
 
 module.exports = {
   getAllArt: (req, res) => {
-    pool.query('SELECT * FROM art', (err, results) => {
-      if (err) {
+
+    pool
+      .query('SELECT * FROM art')
+      .catch( err => 
         res
-        .status(500)
-        .send({ status: `something went wrong`, message: `art could not be retrieved. ${err.message}` });    }
-      res
-        .status(200)
-        .json(results.rows);
-    });
+          .status(500)
+          .send({ status: `something went wrong`, message: `art could not be retrieved. ${err.message}` })
+      )
+      .then( results => {
+
+        const getComments = art => {
+          return pool
+            .query('SELECT * FROM comments WHERE artid=$1', [art.id])
+            .catch( err => 
+              res
+              .status(500)
+              .send({ status: `something went wrong`, message: `art could not be retrieved. ${err.message}` })
+            )
+            .then( results => {
+              art.comments = results.rows;
+              return art;
+            });
+        };
+        
+        const anAsyncFunction = async art => {
+          return getComments(art);
+        };
+        
+        const getAllArtWithComments = async () => {
+          return Promise.all(results.rows.map(art => anAsyncFunction(art)));
+        };
+        
+        getAllArtWithComments().then(allArt => {
+          res
+            .status(200)
+            .json(allArt);
+        });
+      });
   },
   
   getOneArt: (req, res) => {
@@ -22,7 +51,7 @@ module.exports = {
         .status(500)
         .send({ status: `something went wrong`, message: `art ${ID} could not be retrieved. ${err.message}` });
       }
-      res
+        res
         .status(200)
         .json(results.rows);
     });
@@ -42,7 +71,7 @@ module.exports = {
         .send({ status: `something went wrong`, message: `comment could not be added. ${err.message}` });
       } else {
         res
-          .status(201)
+        .status(201)
           .send({ status: 'success', message: 'comment added.' });
       }
     });
