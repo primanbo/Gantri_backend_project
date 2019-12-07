@@ -2,9 +2,14 @@ const { pool } = require('./config');
 
 const getComments = art => {
   return pool
-    .query('SELECT * FROM comments WHERE artid=$1', [art.id])
+    .query('SELECT id,name,content,userid FROM comments WHERE artid=$1', [art.id])
     .then( results => {
-      art.comments = results.rows;
+      art.comments = results.rows.map( row =>{
+        if( row.userid === null ) {
+          delete row.userid;
+        }
+        return row;
+      });
       return art;
     })
     .catch( err => 
