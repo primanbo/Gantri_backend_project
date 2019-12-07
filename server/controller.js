@@ -80,7 +80,7 @@ module.exports = {
 
     } 
     if (typeof userID !== `undefined`) {
-      queryStr = 'INSERT INTO comments (artid, content, userid, name) SELECT $1, $2, $3, name FROM users WHERE userid = $3';
+      queryStr = 'INSERT INTO comments (artid, content, userid, name) SELECT $1, $2, $3, name FROM users WHERE id = $3';
       queryParams = [ID, content, userID];
       
     } else {
