@@ -2,8 +2,26 @@
 Use Tate Modern art data set to create an API that allows user to create users, view art data and create a comment for each art entry.
 
 # Table of Contents
+1. [Demo](#Demo)
+1. [Upcoming Features](#Upcoming-Features)
 1. [Getting Started](#Getting-Started)
 1. [API Endpoints](#API-Endpoints)
+
+# Demo
+Backend is live! 
+View:
+- [All art](http://3.14.81.183:4000/api/art)
+- [Single artwork](http://3.14.81.183:4000/api/art/20400)
+- [Users](http://3.14.81.183:4000/api/users)
+
+Add using Postman or similar tool:
+- [Comment on single artwork](http://3.14.81.183:4000/api/art/20400)
+- [New user](http://3.14.81.183:4000/api/users)
+
+# Upcoming Features
+- View art and comments
+- Login to post multiple comments
+- Post comment without logging in
 
 # Getting Started
 
