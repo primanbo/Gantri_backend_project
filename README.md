@@ -8,7 +8,8 @@ Use Tate Modern art data set to create an API that allows user to create users, 
 1. [API Endpoints](#API-Endpoints)
 
 # Demo
-Backend is live! 
+Backend is live!
+
 View:
 - [All art](http://3.14.81.183:4000/api/art)
 - [Single artwork](http://3.14.81.183:4000/api/art/20400)
